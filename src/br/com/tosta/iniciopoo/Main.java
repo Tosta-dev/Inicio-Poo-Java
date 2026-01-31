@@ -4,22 +4,55 @@
     // Codigo bem incompleto mas o negocio é constancia...
 
     public class Main {
+        static Scanner sc = new Scanner(System.in);
         public static void main(String[] args) {
-            Scanner sc = new Scanner(System.in);
+            System.out.println("Olá, Seja bem vindo!");
+            System.out.println("Você acha que consegue lembrar de quantas pessoas ?");
+            System.out.println("Vamos ver agora! hahahah");
+
+            // Não pensei em um gancho melhor, kakkakakak
+
             while(true){
-                System.out.println("Menu :");
-                System.out.println("1 - Adicionar Pessoa");
-                System.out.println("2 - Ver lista de Pessoas");
-                System.out.println("3 - Sair ");
-                System.out.println("Digite a opção que deseja de acordo com o menu");
-                int opcao = sc.nextInt();
+                int opcao = menu();
                 if (opcao == 1){
-                    System.out.println("Teste - adcionar metodo cadastro pessoa");
+                    System.out.println(" Teste POO - Incompleto - Adicionar metodo para add pessoas ");
+                    if (!continuar())
+                        break;
                 }else if (opcao == 2) {
-                    System.out.println("Teste - pessoas");
+                    System.out.println("Teste POO - Incompleto - Adicionar metodo para ver lista de pessoas");
+                    if (!continuar())
+                        break;
                 }else {
                     break;
                 }
+            }
+        }
+
+        public static int menu(){
+            System.out.println("Menu :");
+            System.out.println("1 - Adicionar Pessoa");
+            System.out.println("2 - Ver lista de Pessoas");
+            System.out.println("3 - Sair ");
+            System.out.println("Digite a opção que deseja de acordo com o numero no menu");
+            int opcao = sc.nextInt();
+            return opcao;
+        }
+        public static int menu2(){
+            System.out.println("Você deseja continuar ou vai sair já ? :");
+            System.out.println("1 - Voltar ao menu inicial");
+            System.out.println("2 - Sair ");
+            System.out.println("Digite a opção que deseja de acordo com o menu");
+            int opcao = sc.nextInt();
+            return opcao;
+        }
+        public static boolean continuar(){
+            int opcao = menu2();
+            if  (opcao == 1){
+                System.out.println("Vamos voltar ao menu agora!");
+                return true;
+            } else {
+                System.out.println("Tchau! Espero que tenha gostado da experiência!");
+                return false;
             }
         }
     }
