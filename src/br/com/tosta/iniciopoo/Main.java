@@ -1,10 +1,12 @@
     package br.com.tosta.iniciopoo;
+    import java.util.ArrayList;
     import java.util.Scanner;
 
     // Codigo bem incompleto mas o negocio é constancia...
 
     public class Main {
         static Scanner sc = new Scanner(System.in);
+        static ArrayList<Pessoa> pessoas = new ArrayList<>();
         public static void main(String[] args) {
             System.out.println("Olá, Seja bem vindo!");
             System.out.println("Você acha que consegue lembrar de quantas pessoas ?");
@@ -15,11 +17,11 @@
             while(true){
                 int opcao = menu();
                 if (opcao == 1){
-                    System.out.println(" Teste POO - Incompleto - Adicionar metodo para add pessoas ");
+                    cadastraPessoas();
                     if (!continuar())
                         break;
                 }else if (opcao == 2) {
-                    System.out.println("Teste POO - Incompleto - Adicionar metodo para ver lista de pessoas");
+                    verPessoas();
                     if (!continuar())
                         break;
                 }else {
@@ -27,7 +29,29 @@
                 }
             }
         }
-
+        public static void verPessoas(){
+            if(pessoas.isEmpty()){
+                System.out.println(" A lista está vazia no momento!");
+                return;
+            }
+            System.out.println("Lista Pessoas : ");
+            for(Pessoa p : pessoas){
+                System.out.print("| Nome : " + p.nome + " | ");
+                System.out.print("| Idade : " + p.idade + " anos | ");
+                System.out.println("| Altura : "  + p.altura + " m | ");
+            }
+        }
+        public static void cadastraPessoas(){
+            sc.nextLine();
+            System.out.println("Digite seu nome:");
+            String nome = sc.nextLine();
+            System.out.println("Digite a sua idade :");
+            int idade = sc.nextInt();
+            System.out.println("Digite a sua altura:");
+            float altura = sc.nextFloat();
+            pessoas.add(new Pessoa(nome,idade,altura));
+            System.out.println("Sucesso! Pessoa adicionada com sucesso!");
+        }
         public static int menu(){
             System.out.println("Menu :");
             System.out.println("1 - Adicionar Pessoa");
@@ -59,18 +83,14 @@
     class Pessoa {
         String nome;
         int idade;
-        public Pessoa(String nome, int idade) {
+        float altura;
+        public Pessoa(String nome, int idade,  float altura) {
             this.nome = nome;
             this.idade = idade;
+            this.altura = altura;
             System.out.println("Olá, Seja Bem vindo " + this.nome);
         }
     }
-    //System.out.println("Digite seu nome:");
-    //                    String nome = sc.nextLine();
-    //                    System.out.println("Digite a sua idade :");
-    //                    int idade = sc.nextInt();
-
-    // Criar uma estrutura para guardar as pessoas
-    // Criar um metodo para cadastrar pessoa
     //Melhorar o while para opção inválida
-    //Criar um metodo para listar pessoas usando for
+    //Pensar em uma forma de tornar o codigo mais utilizavel como lista em si
+    //tentar replicar oq entendi com os metodos, classe, objetos ...
